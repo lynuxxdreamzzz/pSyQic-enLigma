@@ -1,0 +1,34 @@
+sqlcmd -S server\instancename [-E](trusted) -U(username) -P(password)
+
+select DB_NAME()
+select name from sys.databases
+
+Sp_databases
+
+SELECT SERVERPROPERTY('COLLATION') (CI means case insensitive and CS is case sensitive. AS means Accent Sensitive and AI is Accent Insensitive. )
+
+SELECT SERVERPROPERTY('EDITION')
+
+:ListVar (lists variables)
+
+BACKUP DATABASE [AdventureWorks2014] TO  DISK = N'C:\SQL\backup.bak'
+
+:SETVAR DATABASENAME "adventureworks2014"
+USE $(DATABASENAME);
+
+:SETVAR CONTACTTYPEID 3
+SELECT [ContactTypeID]
+      ,[Name]
+      ,[ModifiedDate]
+  FROM [Person].[ContactType]
+where contacttypeid=$(CONTACTTYPEID)
+GO
+
+--Script name: tables.sql
+select table_name from adventureworks2014.information_schema.tables
+
+--Filename columns.sql
+select table_name, column_name from adventureworks2014.information_schema.columns
+
+invoke-sqlcmd -query “sp_who”
+
