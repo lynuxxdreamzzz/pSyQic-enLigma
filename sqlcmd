@@ -1,13 +1,21 @@
-sqlcmd -S server\instancename [-E](trusted) -U(username) -P(password)
+CONNECT
 
-select DB_NAME()
-select name from sys.databases
+  sqlcmd -S server\instancename [-E](trusted) -U(username) -P(password) -i(scrIpt)
 
-Sp_databases
+SEARCH FOR DATABASES
 
-SELECT SERVERPROPERTY('COLLATION') (CI means case insensitive and CS is case sensitive. AS means Accent Sensitive and AI is Accent Insensitive. )
+  select DB_NAME()
+  select name from sys.databases
 
-SELECT SERVERPROPERTY('EDITION')
+DATABASE PROPERTIES
+
+  SELECT SERVERPROPERTY('COLLATION') (CI means case insensitive and CS is case sensitive. AS means Accent Sensitive and AI is Accent Insensitive. )
+
+  SELECT SERVERPROPERTY('EDITION')
+
+FIND ALL TABLES
+
+  SELECT * FROM information_schema.tables;
 
 :ListVar (lists variables)
 

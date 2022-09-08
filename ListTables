@@ -1,0 +1,108 @@
+SQL command to list all tables in MySQL
+
+To list all tables in MySQL, first, you connect to the MySQL database server using the following command:
+
+mysql -u username -p
+Code language: SQL (Structured Query Language) (sql)
+
+MySQL then prompts for the password; just enter the correct one for the user and press enter.
+
+After that, select a database to work with:
+
+use database_name;
+Code language: SQL (Structured Query Language) (sql)
+
+And finally, issue the SHOW TABLES command to display all tables in the current database:
+
+show tables;
+Code language: SQL (Structured Query Language) (sql)
+
+SQL command to list all tables in Oracle
+
+In Oracle, you can use the SQL*Plus or SQL Developer connect to the Oracle Database server and show all tables in a database. Then issue one of the following SQL statement:
+
+1) Show all tables owned by the current user:
+
+SELECT 
+    table_name
+FROM
+    user_tables;
+Code language: SQL (Structured Query Language) (sql)
+
+2) Show all tables in the current database:
+
+SELECT 
+    table_name
+FROM
+    dba_tables;
+Code language: SQL (Structured Query Language) (sql)
+
+3) Show all tables that are accessible by the current user:
+
+SELECT 
+    table_name
+FROM
+    all_tables;
+Code language: SQL (Structured Query Language) (sql)
+
+SQL command to list all tables in PostgreSQL
+
+For PostgreSQL, you can use the psql command-line program to connect to the PostgreSQL database server and display all tables in a database.
+
+First, connect to the PostgreSQL Database server:
+
+psql -d database_name -U  user -W
+Code language: SQL (Structured Query Language) (sql)
+
+PostgreSQL will prompt for the password; just enter the correct one and press enter.
+
+Then, issue the following command to show all tables in the current database:
+
+\dt
+Code language: SQL (Structured Query Language) (sql)
+
+If you want to display also the size and description of the tables, you the following command:
+
+\dt+ 
+Code language: SQL (Structured Query Language) (sql)
+
+SQL command to list all tables in SQL Server
+
+In SQL Server, you can use the following query to find all tables in the currently connected database:
+
+SELECT 
+    *
+FROM
+    information_schema.tables;
+Code language: SQL (Structured Query Language) (sql)
+
+SQL command to list all tables in DB2
+
+First, connect to a specific database on the DB2 database server:
+
+db2 connect to database_name
+Code language: SQL (Structured Query Language) (sql)
+
+Second, to list all table in the current database schema, you use the following command:
+
+db2 list tables for schema schema_name
+Code language: SQL (Structured Query Language) (sql)
+
+To list all tables, you use the command below:
+
+db2 list tables for all
+Code language: SQL (Structured Query Language) (sql)
+
+SQL command to list all tables in SQLite
+
+To show all tables in the current SQLite database, you use the following command:
+
+.tables 
+Code language: SQL (Structured Query Language) (sql)
+
+If you want to query the tables based on a specific pattern e.g., all tables whose names start with test, you use the following command:
+
+.tables 'test%';
+Code language: SQL (Structured Query Language) (sql)
+
+In this tutorial, you have learned commands to show all tables in a database in various database systems including MySQL, PostgreSQL, Oracle, SQL Server, DB2, and SQLite.
