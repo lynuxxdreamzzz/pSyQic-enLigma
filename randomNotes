@@ -1,1 +1,36 @@
-%=wildcard
+RUN SCRIPT 
+    sqlcmd -S myServer\instanceName -i C:\myScript.sql
+    sqlcmd -S Serverinstance -E -i import_file.sql
+
+REGEX
+    %=wildcard, infinite
+    _=wildcard, single character
+    []=normal regex
+    [0^9]=Not 0-9
+
+GET USERS
+    select name as username,
+        create_date,
+        modify_date,
+        type_desc as type,
+        authentication_type_desc as authentication_type
+    from sys.database_principals
+    where type not in ('A', 'G', 'R', 'X')
+        and sid is not null
+        and name != 'guest'
+    order by username;
+
+    username - user name
+    create_date - date the account was added
+    modify_date - date the account was last updated
+    type_desc - principal type:
+        CERTIFICATE_MAPPED_USER - User mapped to a certificate
+        EXTERNAL_USER - External user from Azure Active Directory
+        ASYMMETRIC_KEY_MAPPED_USER - User mapped to an asymmetric key
+        SQL_USER - SQL user
+        WINDOWS_USER - Windows user
+    authentication_type - type of user authentication
+        NONE : No authentication
+        INSTANCE : Instance authentication
+        DATABASE : Database authentication
+        WINDOWS : Windows Authentication
